@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class Program {
 
@@ -11,12 +13,17 @@ public class Program {
         student S1 = new student("S1");
         student S2 = new student("S2");
 
+        ArrayList<student> stud = new ArrayList<>();
+        stud.add(S0);
+        stud.add(S1);
+        stud.add(S2);
+
         stu.put(0,S0);
         stu.put(1,S1);
         stu.put(2,S2);
 
-        instructor I0 = new instructor("I0");
-        instructor I1 = new instructor("I1");
+        instructor I0 = new instructor("I0",stud);
+        instructor I1 = new instructor("I1",stud);
 
         ins.put(0, I0);
         ins.put(1, I1);
