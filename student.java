@@ -3,6 +3,10 @@ import java.util.*;
 public class student implements User{
 
     private String curr_stu;
+    private ArrayList<assessment> ass = new ArrayList<>();
+    
+    private Scanner sc = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
 
     public student (String stu)
     {
@@ -16,10 +20,11 @@ public class student implements User{
     }
 
     @Override
-    public void menu(){
+    public void menu(int opt){
 
-        Scanner sc = new Scanner(System.in);
+        
         Program pg = new Program();
+        
 
         System.out.print("\nSTUDENT MENU\n");
         System.out.print("1. View lecture materials \n");
@@ -32,7 +37,29 @@ public class student implements User{
         
         int cho = sc.nextInt();
         
-        if(cho == 7)
+        if (cho == 1)
+        {
+            view_material(opt);
+        }
+
+        else if (cho == 2)
+        {
+            view_assessments(opt);
+        }
+
+        else if(cho == 5)
+        {
+            view_comments();
+            menu(opt);
+        }
+
+        else if (cho == 6)
+        {
+            add_comments(opt);
+            menu(opt);
+        }
+
+        else if(cho == 7)
         {
             Main.main_menu(pg);
         }
@@ -41,14 +68,58 @@ public class student implements User{
     }
 
     @Override
-    public void view_comments()
+    public void view_material(int opt)
     {
-        //aaa
+        instructor.lec.viewslide();
+        instructor.lec.viewvideo();
+        System.out.println("Welcome S" + opt);
+        menu(opt);
     }
+ 
+    @Override
+    public void view_assessments(int opt)
+    {
+        instructor.as.view_all();
+        System.out.println("Welcome S" + opt);
+        menu(opt);
+    }    
 
     @Override
-    public void add_comments()
+    public void view_comments()
     {
-        //aaa
-    }    
+        for(HashMap.Entry<String,HashMap> trav : instructor.comment.entrySet())
+        {
+            HashMap<String,Date> travmap = new HashMap<>();
+
+            travmap = trav.getValue();
+
+            for(HashMap.Entry<String,Date> ite : travmap.entrySet())
+            {
+                Date x = new Date();
+                x = ite.getValue();
+    
+                System.out.println(trav.getKey() + " - " + ite.getKey());
+                System.out.println(x);
+            }
+
+            System.out.println();
+        }
+    }
+
+
+    @Override
+    public void add_comments(int opt)
+    {
+        System.out.println("Enter comment: ");
+        String com = scan.nextLine();
+        String stf = "S" + opt;
+
+        HashMap<String,Date> co = new HashMap<>();
+        
+        long millis=System.currentTimeMillis(); 
+        java.util.Date date=new java.util.Date(millis);
+
+        co.put(stf, date);
+        instructor.comment.put(com, co);
+    }   
 }
