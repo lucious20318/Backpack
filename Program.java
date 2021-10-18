@@ -9,11 +9,11 @@ public class Program {
 
     public Program()
     {
-        student S0 = new student("S0");
-        student S1 = new student("S1");
-        student S2 = new student("S2");
+        User S0 = new student("S0");
+        User S1 = new student("S1");
+        User S2 = new student("S2");
 
-        ArrayList<student> stud = new ArrayList<>();
+        ArrayList<User> stud = new ArrayList<>();
         stud.add(S0);
         stud.add(S1);
         stud.add(S2);
@@ -22,8 +22,8 @@ public class Program {
         stu.put(1,S1);
         stu.put(2,S2);
 
-        instructor I0 = new instructor("I0",stud);
-        instructor I1 = new instructor("I1",stud);
+        User I0 = new instructor("I0");
+        User I1 = new instructor("I1");
 
         ins.put(0, I0);
         ins.put(1, I1);
