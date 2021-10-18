@@ -4,7 +4,7 @@ import java.lang.*;
 public class instructor implements User{
 
     private String curr_ins;
-    private ArrayList<student> stud = new ArrayList<>();
+    
 
     private Scanner sc = new Scanner(System.in);
     private Scanner scan = new Scanner(System.in); 
@@ -14,10 +14,10 @@ public class instructor implements User{
     
     public static HashMap<String,HashMap> comment = new HashMap<>();
 
-    public instructor(String ins, ArrayList stud)
+    public instructor(String ins)
     {
         this.curr_ins = ins;        
-        this.stud = stud;
+        
     }
 
     @Override
@@ -103,6 +103,26 @@ public class instructor implements User{
         else if(cho == 4)
         {
             view_assessments(opt);
+            System.out.println("Welcome I" + opt);
+            menu(opt);
+        }
+
+        else if(cho == 5)
+        {
+            System.out.println("List of assessments");
+            view_assessments(opt);
+            as.grade_assessments(opt);
+            System.out.println("Welcome I"+opt);
+            menu(opt);
+        }
+
+        else if(cho == 6)
+        {
+            System.out.println("List of open assignments");
+            view_assessments(opt);
+            as.close_assessment();
+            System.out.println("Welcome I" + opt);
+            menu(opt);
         }
 
         else if(cho == 7)
@@ -136,8 +156,6 @@ public class instructor implements User{
     public void view_assessments(int opt)
     {
         as.view_all();
-        System.out.println("Welcome I" + opt);
-        menu(opt);
     }
 
     @Override
