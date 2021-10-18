@@ -183,12 +183,14 @@ public class assessment
         System.out.println("Choose ID from these ungraded submissions: ");
         
         int i = 0;
+        System.out.println(subs);
         for(HashMap.Entry<String,Integer> trav : subs.entrySet())
         {
             if (trav.getValue() == sub_id)
             {
                 System.out.println();
                 System.out.print(i + ". " + trav.getKey());
+                i = i+1;
             }
         } 
 
