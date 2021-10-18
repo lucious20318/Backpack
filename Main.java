@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.*;
 
 public class Main{
     
@@ -41,13 +42,13 @@ public class Main{
                 if(x==opt)
                 {
                     User in = trav.getValue();
-                    in.menu();
+                    in.menu(opt);
                 }
             }
 
         }
 
-        if(ch == 2)
+        else if(ch == 2)
         {
             choice = pg.get_stu();
             
@@ -69,11 +70,20 @@ public class Main{
                 if(x==opt)
                 {
                     User st = trav.getValue();
-                    st.menu();
+                    st.menu(opt);
                 }
             }
         }
+
+        else if(ch == 3)
+        {
+            System.exit(0);
+        }
+
+        else
+        {
+            System.out.println("\nWrong option");
+            System.exit(0);
+        }
     }
 }
-
-
