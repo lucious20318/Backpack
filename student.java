@@ -3,10 +3,12 @@ import java.util.*;
 public class student implements User{
 
     private String curr_stu;
-    private ArrayList<assessment> ass = new ArrayList<>();
-    
     private Scanner sc = new Scanner(System.in);
     private Scanner scan = new Scanner(System.in);
+
+    public static assessment a0 = new assessment();
+    public static assessment a1 = new assessment();
+    public static assessment a2 = new assessment();
 
     public student (String stu)
     {
@@ -45,6 +47,57 @@ public class student implements User{
         else if (cho == 2)
         {
             view_assessments(opt);
+        }
+
+        else if (cho == 3)
+        {
+            if(opt==0){
+                a0.submit_assessment(opt);
+                System.out.println("Welcome S0");
+                menu(opt);
+            }
+            else if(opt == 1)
+            {
+                a1.submit_assessment(opt);
+                System.out.println("Welcome S1");
+                menu(opt);
+            }
+            else if(opt == 2)
+            {
+                a2.submit_assessment(opt);
+                System.out.println("Welcome S2");
+                menu(opt);
+            }
+            else
+            {
+                System.exit(0);
+            }
+        }
+
+        else if (cho == 4)
+        {
+            if(opt==0)
+            {
+                a0.view_grades();
+                System.out.println("Welcome S" + opt);
+                menu(opt);
+            }
+            else if(opt ==1)
+            {
+                a1.view_grades();
+                System.out.println("Welcome S" + opt);
+                menu(opt);
+            }
+            else if(opt == 2)
+            {
+                a2.view_grades();
+                System.out.println("Welcome S" + opt);
+                menu(opt);
+            }
+            else
+            {
+                System.exit(0);
+            }
         }
 
         else if(cho == 5)
