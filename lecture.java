@@ -5,6 +5,7 @@ public class lecture
     private HashMap<String, ArrayList> slides = new HashMap<>();
     private HashMap<String, ArrayList> video = new HashMap<>();
     private HashMap<String, Date> time = new HashMap<>();
+    
     private Scanner sc = new Scanner(System.in);
     private Scanner scan = new Scanner(System.in);
 
@@ -82,7 +83,7 @@ public class lecture
     }
 
 
-    public void viewslide(int opt)
+    public void viewslide()
     {
         System.out.println("Enter\n\n");
 
@@ -105,12 +106,10 @@ public class lecture
             System.out.println("Date of upload" + time.get(trav.getKey()));
             System.out.println("Uploaded by: " + travlist.get(no));
         }
-
-        System.out.println("Welcome S" + opt);
         System.out.println();
     }
 
-    public void viewvideo(int opt)
+    public void viewvideo()
     {
         for(HashMap.Entry<String,ArrayList> trav : video.entrySet())
         {
@@ -123,9 +122,5 @@ public class lecture
             System.out.println("Uploaded by: " + travlist.get(1));
 
         }
-        
-        System.out.println("Welcome S" + opt);
     }        
 }
-    
-
