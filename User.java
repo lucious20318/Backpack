@@ -8,6 +8,3 @@ public interface User{
     public void view_material(int opt);
     public void view_assessments(int opt);
 }
-
-
-
